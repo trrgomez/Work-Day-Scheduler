@@ -1,8 +1,11 @@
 $(document).ready(function () {
     // current day is displayed at the top of the calendar
     var date = new Date()
-    var toady = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
-    $('#currentDay').text(toady)
+    var date = new Date()
+    var today = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
+    $('#currentDay').text(today)
+
+
 
     // hide the alert divs
     $("#saveTask").hide()
@@ -34,22 +37,31 @@ $(document).ready(function () {
         // grabs the text hour corresponding to the textarea
         var time = $(this).siblings(".hour").text();
 
-        // validates if there is a value in textarea, if not the user is alerted
-        if (!text) {
-            $("#error").show()
-            setTimeout(function () {
-                $("#error").hide()
-            }, 4000)
-        } else {
-            // saves the time and text values in local storage
-            localStorage.setItem(time, text);
-            // the user is alerted that their event is saved
-            $("#saveTask").show()
-            setTimeout(function () {
-                $("#saveTask").hide()
-            }, 4000)
+
+        // saves the time and text values in local storage
+        localStorage.setItem(time, text);
+        // the user is alerted that their event is saved
+        $("#saveTask").show()
+        setTimeout(function () {
+            $("#saveTask").hide()
+        }, 4000)
+
+
+    });
+
+    $(".hour").each(function () {
+        // grabs the text element of the hour
+        var getHour = $(this).text();
+        // grabs the value in textarea at that hour from local storage
+        var description = localStorage.getItem(getHour);
+
+        // if there is a value, we set the textarea with that value from local storage
+        if (description) {
+            $(this).siblings(".description").val(description);
         }
 
     });
+
+
 
 })
