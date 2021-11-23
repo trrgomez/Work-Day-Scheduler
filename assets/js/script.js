@@ -9,7 +9,7 @@ $(document).ready(function () {
     $("#error").hide()
 
     // each time block is color-coded indicating whether it is in the past, present, or future
-    $(".hour").each(function () {
+    $(".time-block").each(function () {
         // gets the current date and grabs the hour
         var time = new Date();
         var hour = time.getHours();
