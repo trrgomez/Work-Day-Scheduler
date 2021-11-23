@@ -1,11 +1,8 @@
 $(document).ready(function () {
     // current day is displayed at the top of the calendar
-    var date = new Date()
-    var date = new Date()
-    var today = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
-    $('#currentDay').text(today)
-
-
+    var date = new Date();
+    var time = (date.getMonth()+1)+'-'+date.getDate()+'-'+date.getFullYear();
+    $('#currentDay').text(time)
 
     // hide the alert divs
     $("#saveTask").hide()
@@ -61,7 +58,5 @@ $(document).ready(function () {
         }
 
     });
-
-
 
 })
