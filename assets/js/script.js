@@ -3,4 +3,8 @@ $(document).ready(function(){
     var date = new Date()
     var toady = `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`
     $('#currentDay').text(toady)
+
+    // hide the alert divs
+    $("#saveTask").hide()
+    $("#error").hide()
 })
