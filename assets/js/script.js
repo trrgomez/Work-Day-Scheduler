@@ -59,4 +59,10 @@ $(document).ready(function () {
 
     });
 
+    // button that will clear local storage and textarea
+    $('#clear').on('click', function(){
+        localStorage.clear()
+        $('textarea').val('')
+      })
+
 })
