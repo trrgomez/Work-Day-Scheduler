@@ -34,14 +34,21 @@ $(document).ready(function () {
         // grabs the text hour corresponding to the textarea
         var time = $(this).siblings(".hour").text();
 
-
+        if(!text){
+            // the user is alerted that no input was entered
+            $("#error").show()
+            setTimeout(function(){
+              $("#error").hide()
+            }, 4000)
+          }else {
         // saves the time and text values in local storage
-        localStorage.setItem(time, text);
-        // the user is alerted that their event is saved
-        $("#saveTask").show()
-        setTimeout(function () {
-            $("#saveTask").hide()
-        }, 4000)
+            localStorage.setItem(time, text);
+             // the user is alerted that their event is saved
+            $("#saveTask").show()
+            setTimeout(function(){
+              $("#saveTask").hide()
+            }, 4000)
+          }
 
 
     });
