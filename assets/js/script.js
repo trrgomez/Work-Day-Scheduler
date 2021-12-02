@@ -1,7 +1,6 @@
 $(document).ready(function () {
     // current day is displayed at the top of the calendar
-    var date = new Date();
-    var time = (date.getMonth()+1)+'-'+date.getDate()+'-'+date.getFullYear();
+    var time = moment().format("ddd, MMMM Do YYYY, h:mm a")
     $('#currentDay').text(time)
 
     // hide the alert divs
